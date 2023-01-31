@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.motivacao.infra.MotivationConstantes
+import com.example.motivacao.infra.MotivationConstants
 import com.example.motivacao.R
 import com.example.motivacao.infra.SecurityPreferencees
 import com.example.motivacao.databinding.ActivityUserBinding
@@ -32,7 +32,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun verifyUserName(){
-        val name =  SecurityPreferencees(this).getString(MotivationConstantes.Key.USER_NAME)
+        val name =  SecurityPreferencees(this).getString(MotivationConstants.Key.USER_NAME)
         if(name != ""){
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -42,7 +42,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         val name = binding.editName.text.toString()
         if (name != "") {
             //salvando o nome do usuário
-            SecurityPreferencees(this).storeString(MotivationConstantes.Key.USER_NAME, name)
+            SecurityPreferencees(this).storeString(MotivationConstants.Key.USER_NAME, name)
             //Fazendo a navegação entre as activitys
             startActivity(Intent(this, MainActivity::class.java))
             //Destroi  a tela anterior
